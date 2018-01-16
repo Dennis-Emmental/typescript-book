@@ -1,5 +1,5 @@
-* [TypeScript 시작하기](#getting-started-with-typescript)
-* [TypeScript 버전](#typescript-version)
+* [TypeScript 시작하기](#getting-시작하기)
+* [TypeScript 버전](#typescript-버전)
 
 # TypeScript 시작하기
 
