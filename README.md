@@ -1,7 +1,7 @@
 TypeScript Deep Dive (한국어)
 =======
 
-사람들이 TypeScript를 사용하기 시작할 때, 공통으로 나타나는 문제들을 지켜보고 있었습니다. 이 문서는 [StackOverflow](http://stackoverflow.com/tags/typescript/topusers) / [DefinitelyTyped](https://github.com/DefinitelyTyped/)의 교훈과 [TypeScript 커뮤니티](https://github.com/TypeStrong/)의 일반적인 참여를 바탕으로 작성되었습니다. [업데이트 확인](https://twitter.com/basarat)을 할 수 있고 [Github에 ★ 찍기를 잊지 마세요](https://github.com/basarat/typescript-book) 🌹
+사람들이 TypeScript를 사용하기 시작할 때, 공통으로 나타나는 문제들을 지켜보고 있었습니다. 이 문서는 [StackOverflow](http://stackoverflow.com/tags/typescript/topusers) / [DefinitelyTyped](https://github.com/DefinitelyTyped/)의 교훈과 [TypeScript 커뮤니티](https://github.com/TypeStrong/)의 일반적인 참여를 바탕으로 작성되었습니다. [업데이트 확인](https://twitter.com/basarat)을 할 수 있고 [Github에 ★ 찍기를 잊지 마세요](https://github.com/Dennis-Emmental/typescript-book-Korean) 🌹
 
 ## 리뷰
 
