@@ -1,8 +1,8 @@
 {
-  "language": "en",
-  "author": "Basarat Ali Syed",
-  "title": "TypeScript Deep Dive",
-  "plugins": ["edit-link", "github", "adsense","header"],
+  "language": "ko",
+  "author": "Basarat Ali Syed, Korean translator: Dennis Song",
+  "title": "TypeScript Deep Dive (Korean)",
+  "plugins": ["edit-link", "github","header"],
   "pluginsConfig": {
     "layout": {
       "headerPath" : "header.html"
@@ -11,18 +11,11 @@
       "ignoreSpecialCharacters": true
     },
     "edit-link": {
-      "base": "https://github.com/basarat/typescript-book/tree/master",
+      "base": "https://github.com/Dennis-Emmental/typescript-book/tree/master",
       "label": "Edit This Page"
     },
     "github": {
-      "url": "https://github.com/basarat/typescript-book/"
-    },
-    "adsense": {
-      "client": "ca-pub-4656761253552116",
-      "slot": "2017468453",
-      "format": "auto",
-      "element": ".page-inner section",
-      "position": "bottom"
+      "url": "https://github.com/Dennis-Emmental/typescript-book/"
     }
   }
 }
