@@ -2,7 +2,7 @@
 
 * [소개](README.md)
 * [시작하기](docs/getting-started.md)
-  * [Why TypeScript](docs/why-typescript.md)
+  * [왜 TypeScript인가](docs/why-typescript.md)
 * [JavaScript](docs/javascript/recap.md)
   * [Equality](docs/javascript/equality.md)
   * [References](docs/javascript/references.md)
