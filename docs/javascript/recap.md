@@ -1,27 +1,27 @@
-# Your JavaScript is TypeScript
+# JavaScript는 TypeScript
 
-There were (and will continue to be) a lot of competitors in *Some syntax* to *JavaScript* compilers. TypeScript is different from them in that *Your JavaScript is TypeScript*. Here's a diagram:
+*JavaScript* 컴파일러의 *일부 문법*에서 많은 경쟁자가 있었습니다. (그리고 앞으로도 그럴 겁니다) TypeScript는 *JavaScript가 TypeScript*라는 점에서 다릅니다. 여기에 다이어그램이 있습니다.:
 
 ![JavaScript is TypeScript](https://raw.githubusercontent.com/basarat/typescript-book/master/images/venn.png)
 
-However it does mean that *you need to learn JavaScript* (the good news is *you **only** need to learn JavaScript*). TypeScript is just standardizing all the ways you provide *good documentation* on JavaScript.
+하지만 이는 *JavaScript를 배워야 한다*는 것을 의미합니다. (좋은 소식은 *오직 JavaScript **만** 배울 필요가 있습니다.*) TypeScript는 JavaScript에 *좋은 문서*를 제공하는 방법을 표준화합니다.
 
-* Just giving you a new syntax doesn't help fix bugs (looking at you CoffeeScript).
-* Creating a new language abstracts you too far from your runtimes, communities (looking at you Dart).
+* (CoffeeScript를 보면) 새로운 문법을 제공한다고 버그를 수정하는 데 도움이 되지는 않습니다.
+* (Dart를 보면) 새로운 언어를 만드는 것은 런타임과 커뮤니티로부터 멀어지게 만듭니다.
 
-TypeScript is just JavaScript with docs.
+TypeScript는 그저 문서가 포함된 JavaScript입니다.
 
-## Making JavaScript Better
+## JavaScript를 개선하기
 
-TypeScript will try to protect you from portions of JavaScript that never worked (so you don't need to remember this stuff):
+TypeScript는 절대로 동작하지 않는 JavaScript로부터 보호하려고 노력할 것입니다. (그래서 이 부분을 기억할 필요는 없습니다):
 
 ```ts
 [] + []; // JavaScript will give you "" (which makes little sense), TypeScript will error
 
 //
-// other things that are nonsensical in JavaScript
-// - don't give a runtime error (making debugging hard)
-// - but TypeScript will give a compile time error (making debugging unnecessary)
+// JavaScript에서 이상한 다른 것들
+// - 런타임 오류를 내지 않는다. (디버깅을 어렵게 만듦)
+// - 그러나 TypeScript는 컴파일 때 오류를 낼 겁니다. (디버깅이 필요 없게 함)
 //
 {} + []; // JS : 0, TS Error
 [] + {}; // JS : "[object Object]", TS Error
@@ -34,10 +34,10 @@ function add(a,b) {
 }
 ```
 
-Essentially TypeScript is linting JavaScript. Just doing a better job at it than other linters that don't have *type information*.
+본래 TypeScript는 JavaScript를 검사(lint)합니다. *타입 정보*가 없는 다른 검사기들보다 검사를 더 잘하고 있습니다.
 
-## You still need to learn JavaScript
+## 여전히 JavaScript 배워야 합니다.
 
-That said TypeScript is very pragmatic about the fact that *you do write JavaScript* so there are some things about JavaScript that you still need to know in order to not be caught off-guard. Let's discuss them next.
+*JavaScript를 작성한다는* 사실에 대해 TypeScript는 매우 실용적이라고 말합니다. 그래서 방심하지 않으려면 JavaScript에 대해 알아야 할 몇 가지가 있습니다. 다음에 그것들에 관해 이야기합니다.
 
-> Note: TypeScript is a superset of JavaScript. Just with documentation that can actually be used by compilers / IDEs ;)
+> 참고: TypeScript는 JavaScript의 상위 집합입니다. 컴파일러 / IDE가 사용할 수 있는 문서가 포함된 것입니다. ;)
