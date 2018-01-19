@@ -9,7 +9,7 @@
   * [Null vs. Undefined](docs/javascript/null-undefined.md)
   * [this](docs/javascript/this.md)
   * [클로저](docs/javascript/closure.md)
-  * [Number](docs/javascript/number.md)
+  * [숫자](docs/javascript/number.md)
 * [Future JavaScript Now](docs/future-javascript.md)
   * [Classes](docs/classes.md)
     * [Classes Emit](docs/classes-emit.md)
