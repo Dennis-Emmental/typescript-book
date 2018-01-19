@@ -11,7 +11,6 @@ console.log('' == undefined); // false
 console.log(false == undefined); // false
 ```
 `undefined` 또는 `null`인지 확인할 때 `== null`를 추천합니다. 보통 둘 사이의 구분을 원하지 않을 것입니다.
-Recommend `== null` to check for both `undefined` or `null`. You generally don't want to make a distinction between the two.
 
 ## undefined
 
