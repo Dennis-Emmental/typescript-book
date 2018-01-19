@@ -8,7 +8,7 @@
   * [참조(Reference)](docs/javascript/references.md)
   * [Null vs. Undefined](docs/javascript/null-undefined.md)
   * [this](docs/javascript/this.md)
-  * [Closure](docs/javascript/closure.md)
+  * [클로저](docs/javascript/closure.md)
   * [Number](docs/javascript/number.md)
 * [Future JavaScript Now](docs/future-javascript.md)
   * [Classes](docs/classes.md)
