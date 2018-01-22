@@ -11,7 +11,7 @@
   * [클로저](docs/javascript/closure.md)
   * [숫자](docs/javascript/number.md)
 * [미래의 JavaScript를 지금](docs/future-javascript.md)
-  * [Classes](docs/classes.md)
+  * [클래스](docs/classes.md)
     * [Classes Emit](docs/classes-emit.md)
     * [Classes Super](docs/classes-super.md)
   * [Arrow Functions](docs/arrow-functions.md)
