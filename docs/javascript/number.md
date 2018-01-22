@@ -23,7 +23,7 @@ console.log({max: Number.MAX_SAFE_INTEGER, min: Number.MIN_SAFE_INTEGER});
 
 이 문맥에서 **안전**은 *반올림 오류가 없는* 값이라는 사실을 나타냅니다.
 
-안전하지 않은 값은 안전한 값으로부터 `+1 / -1` 떨어져 있고, 더하기 / 빼기의 결과를 안전하지 않은 값으로 만들 것입니다.
+안전하지 않은 값은 안전한 값으로부터 `+1 / -1` 떨어져 있고, 더하기 / 빼기의 결과를 안전하지 않은 값으로 반올림할 것입니다.
 
 ```js
 console.log(Number.MAX_SAFE_INTEGER + 20 === Number.MAX_SAFE_INTEGER + 1); // true!

@@ -1,4 +1,4 @@
-# Future JavaScript: Now
-One of the main selling points of TypeScript is that it allows you to use a bunch of features from ES6 and beyond in current (ES3 and ES5 level) JavaScript engines (like current browsers and Node.js). Here we deep dive into why these features are useful followed by how these features are implemented in TypeScript.
+# 미래의 JavaScript: 지금
+TypeScript의 판매 포인트 중에 하나는 현재의 (ES3와 ES5 수준) JavaScript 엔진 (지금 브라우저와 Node.js)에서 ES6 이상의 기능을 사용할 수 있다는 것입니다. 여기에서는 이러한 기능이 유용한 이유와 TypeScript에서 이 기능이 구현되는 방법을 자세히 살펴볼 것입니다.
 
-Note: Not all of these features are slated for immediate addition to JavaScript but provide great utility to your code organization and maintenance. Also note that you are free to ignore any of the constructs that don't make sense for your project, although you will end up using most of them eventually ;)
+참고: 이런 모든 기능들이 JavaScript에 즉시 추가될 것은 아니지만, 코드 구성 및 유지 관리에 매우 유용합니다. 또한 언젠가는 대부분을 사용하게 되겠지만, 프로젝트에 적합하지 않은 구조는 자유롭게 무실할 수 있습니다. ;)

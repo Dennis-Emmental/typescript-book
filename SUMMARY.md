@@ -10,7 +10,7 @@
   * [this](docs/javascript/this.md)
   * [클로저](docs/javascript/closure.md)
   * [숫자](docs/javascript/number.md)
-* [Future JavaScript Now](docs/future-javascript.md)
+* [미래의 JavaScript를 지금](docs/future-javascript.md)
   * [Classes](docs/classes.md)
     * [Classes Emit](docs/classes-emit.md)
     * [Classes Super](docs/classes-super.md)
