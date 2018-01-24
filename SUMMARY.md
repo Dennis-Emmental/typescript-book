@@ -13,7 +13,7 @@
 * [미래의 JavaScript를 지금](docs/future-javascript.md)
   * [클래스](docs/classes.md)
     * [클래스 방출](docs/classes-emit.md)
-    * [Classes Super](docs/classes-super.md)
+    * [클래스 Super](docs/classes-super.md)
   * [Arrow Functions](docs/arrow-functions.md)
   * [Rest Parameters](docs/rest-parameters.md)
   * [let](docs/let.md)

@@ -1,6 +1,6 @@
 #### `super`
 
-Note that if you call `super` on a child class it is redirected to the `prototype` as shown below:
+자식 클래스에서 `super`를 호출하면 아래에 보이는 것처럼 `prototype`으로 전달됩니다.
 
 ```ts
 class Base {
@@ -11,7 +11,7 @@ class Child extends Base {
     log() { super.log() };
 }
 ```
-generates:
+다음 코드를 생성합니다.:
 
 ```js
 var Base = (function () {
@@ -30,9 +30,9 @@ var Child = (function (_super) {
 })(Base);
 
 ```
-Notice `_super.prototype.log.call(this)`.
+`_super.prototype.log.call(this)`를 주목하세요.
 
-This means that you cannot use `super` on member properties. Instead you should just use `this`.
+멤버 속성에서 `super`를 사용할 수 없음을 의미합니다. 대신에 `this`를 사용해야 합니다.
 
 ```ts
 class Base {
@@ -44,9 +44,9 @@ class Child extends Base {
 }
 ```
 
-Notice since there is only one `this` shared between the `Base` and the `Child` class you need to use *different* names (here `log` and `logWorld`).
+`Base`와 `Child` 클래스 사이에서 `this`만 공유되기 때문에 *다른* 이름을 사용할 필요가 있습니다. (여기에서는 `log`와 `logWorld`)
 
-Also Note that TypeScript will warn you if you try to misuse `super`:
+또한 TypeScript는 `super`를 잘못 사용하면 경고할 것입니다.:
 
 ```ts
 module quz {
