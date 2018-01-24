@@ -1,5 +1,5 @@
-#### What's up with the IIFE
-The js generated for the class could have been:
+#### IIFE는?
+클래스에 대해서 생성된 js는 다음과 같을 수 있습니다.: 
 ```ts
 function Point(x, y) {
     this.x = x;
@@ -10,7 +10,7 @@ Point.prototype.add = function (point) {
 };
 ```
 
-The reason its wrapped in an Immediately-Invoked Function Expression (IIFE) i.e.
+예를 들어 즉식 호출 함수 표현식으로(IIFE) 쌓여진 이유는 
 
 ```ts
 (function () {
@@ -21,7 +21,7 @@ The reason its wrapped in an Immediately-Invoked Function Expression (IIFE) i.e.
 })();
 ```
 
-has to do with inheritance. It allows TypeScript to capture the base class as a variable `_super` e.g.
+상속과 관련이 있습니다. TypeScript가 기반 클래스를 변수 `_super`로 저장할 수 있습니다. 예를 들어
 
 ```ts
 var Point3D = (function (_super) {
@@ -38,10 +38,10 @@ var Point3D = (function (_super) {
 })(Point);
 ```
 
-Notice that the IIFE allows TypeScript to easily capture the base class `Point` in a `_super` variable and that is used consistently in the class body.
+IIFE는 TypeScript가 `_super` 변수에 기반 클래스 `Point`를 쉽게 저장할 수 있게 해주고 클래스 본체에서 일관되게 사용합니다.
 
 ### `__extends`
-You will notice that as soon as you inherit a class TypeScript also generates the following function:
+클래스를 사용하자마자 TypeScript는 다음 함수를 생성합니다.:
 ```ts
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -50,58 +50,58 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 ```
-Here `d` refers to the derived class and `b` refers to the base class. This function does two things:
-1. copies the static members of the base class onto the child class i.e. `for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];`
-1. sets up the child class function's prototype to optionally lookup members on the parent's `proto` i.e. effectively `d.prototype.__proto__ = b.prototype`
+`d`는 파생된 클래스를 나타내고 `b`는 기반 클래스를 나타냅니다. 이 함수는 두 가지 일을 합니다.:
+1. 기반 클래스의 정적 멤버를 자식 클래스에 복사합니다. 예를 들면 `for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];` 입니다.
+1. 자식 클래스 함수의 프로토타입에 부모의 `proto`의 멤버를 선택적으로 보게 설정합니다. 예를 들면 `d.prototype.__proto__ = b.prototype` 입니다.
 
-People rarely have trouble understanding 1, but many people struggle with 2. So an explanation is in order.
+1을 이해하는 데 어려움을 겪는 사람은 드물지만, 많은 사람은 2를 이해하는 데 어려움을 겪습니다. 이어서 설명을 합니다.
 
 #### `d.prototype.__proto__ = b.prototype`
 
-After having tutored many people about this I find the following explanation to be simplest. First we will explain how the code from `__extends` is equivalent to the simple `d.prototype.__proto__ = b.prototype`, and then why this line in itself is significant. To understand all this you need to know these things:
+이를 많은 사람에게 가르쳐본 후 다음 설명이 가장 단순하다는 것을 알게 되었습니다. 먼저 `__extends`의 코드가 `d.prototype.__proto__ = b.prototype`와 같은지 설명하고 왜 이 라인이 중요한지 설명할 것입니다. 이 모든 것을 이해하려면 다음 사항을 알아야 합니다.
 
 1. `__proto__`
 1. `prototype`
-1. effect of `new` on `this` inside the called function
-1. effect of `new` on `prototype` and `__proto__`
+1. 호출된 함수 안의 `this`에 미치는 `new`의 영향
+1. `prototype`과 `__proto__`에 미치는 `new`의 영향
 
-All objects in JavaScript contain a `__proto__` member. This member is often not accessible in older browsers (sometimes documentation refers to this magical property as `[[prototype]]`). It has one objective: If a property is not found on an object during lookup (e.g. `obj.property`) then it is looked up at `obj.__proto__.property`. If it is still not found then `obj.__proto__.__proto__.property` till either: *it is found* or *the latest `.__proto__` itself is null*. This explains why JavaScript is said to support *prototypal inheritance* out of the box. This is shown in the following example, which you can run in the chrome console or Node.js:
+JavaScript의 모든 객체는 `__proto__` 멤버를 가지고 있습니다. 이 멤버는 오래된 브라우저에서는 지원하지 않을 수 있습니다. (때로는 문서에서 이 마법 속성을 `[[prototyp]]`이라고 합니다.) 하나의 목표가 있습니다.: 만약 찾는 동안 (예를 들어 `obj.property`) 객체에서 속성이 발견되지 않으면 `obj.__proto__.property`에서 찾으려고 합니다. 그래도 찾지 못하면 `obj.__proto__.__proto__.property`에서 둘 중 하나를 찾으려고 반복합니다. *찾았거나* *마지막 `.__proto__`가 null*이거나.  JavaScript가 *프로토타입 상속*을 지원한다고 말하는 이유입니다. 다음 예제를 chrome 콘솔 또는 Node.js에서 수행할 수 있습니다.
 
 ```ts
 var foo = {}
 
-// setup on foo as well as foo.__proto__
+// foo.__proto__와 foo 설정
 foo.bar = 123;
 foo.__proto__.bar = 456;
 
 console.log(foo.bar); // 123
-delete foo.bar; // remove from object
+delete foo.bar; // 객체에서 제거
 console.log(foo.bar); // 456
-delete foo.__proto__.bar; // remove from foo.__proto__
+delete foo.__proto__.bar; // foo.__proto__에서 제거
 console.log(foo.bar); // undefined
 ```
 
-Cool so you understand `__proto__`. Another useful information is that all `function`s in JavaScript have a property called `prototype` and that it has a member `constructor` pointing back to the function. This is shown below:
+`__proto__`를 이해했습니다. 또 다른 유용한 정보는 JavaScript의 모든 `함수`는 `prototype`이라는 속성을 가지고 있고, `prototype`은 그 함수를 가리키는 `constructor` 멤버를 가지고 있습니다. 아래에 나와 있습니다.:
 
 ```ts
 function Foo() { }
-console.log(Foo.prototype); // {} i.e. it exists and is not undefined
-console.log(Foo.prototype.constructor === Foo); // Has a member called `constructor` pointing back to the function
+console.log(Foo.prototype); // {} i.e. 존재하고 정의되지 않음
+console.log(Foo.prototype.constructor === Foo); // 함수를 가리키는 `constructor` 멤버를 가지고 있음
 ```
 
-Now let's look at *effect of `new` on `this` inside the called function*. Basically `this` inside the called function is going to point to the newly created object that will be returned from the function. It's simple to see if you mutate a property on `this` inside the function:
+*호출된 함수 안에서 `this`에 미치는 `new`의 영향*을 살펴보겠습니다. 기본적으로 호출된 함수 안에서 `this`는 함수에서 반환될 새롭게 생성된 객체를 가리킬 것입니다. 함수 안에서 `this`의 속성을 변경시켜보면 간단하게 볼 수 있습니다.  
 
 ```ts
 function Foo() {
     this.bar = 123;
 }
 
-// call with the new operator
+// new 연산자로 호출
 var newFoo = new Foo();
 console.log(newFoo.bar); // 123
 ```
 
-Now the only other thing you need to know is that calling `new` on a function assigns the `prototype` of the function to the `__proto__` of the newly created object that is returned from the function call. Here is the code you can run to completely understand it:
+이제 함수에서 `new`를 호출하는 것은 함수 호출에서 반환된 새롭게 생성된 객체의 `__proto__`에 함수의 `prototype`이 할당되는 것도 알아야 합니다. 완벽한 이해를 돕는 코드가 여기 있습니다.: 
 
 ```ts
 function Foo() { }
@@ -111,7 +111,7 @@ var foo = new Foo();
 console.log(foo.__proto__ === Foo.prototype); // True!
 ```
 
-That's it. Now look at the following straight out of `__extends`. I've taken the liberty to number these lines:
+이것이 전부입니다. 이제 바로 다음과 같은 `__extends`를 보세요. 제 맘대로 줄에 번호를 매겨놨습니다.
 
 ```ts
 1  function __() { this.constructor = d; }
@@ -119,13 +119,13 @@ That's it. Now look at the following straight out of `__extends`. I've taken the
 3   d.prototype = new __();
 ```
 
-Reading this function in reverse the `d.prototype = new __()` on line 3 effectively means `d.prototype = {__proto__ : __.prototype}` (because of the effect of `new` on `prototype` and `__proto__`), combining it with the previous line (i.e. line 2 `__.prototype = b.prototype;`) you get `d.prototype = {__proto__ : b.prototype}`.
+이 함수를 뒤에서부터 보면 3번 줄에 `d.prototype = new __()`은 `d.prototype = {__proto__ : __.prototype}`을 의미하고 (`prototype`과 `__proto__`에 대한 `new`의 영향이기 때문에), 앞줄과 (2번 줄 `__.prototype = b.prototype;`) 하나로 합쳐져서 `d.prototype = {__proto__ : b.prototype}`이 됩니다.
 
-But wait, we wanted `d.prototype.__proto__` i.e. just the proto changed and maintain the old `d.prototype.constructor`. This is where the significance of the first line (i.e. `function __() { this.constructor = d; }`) comes in. Here we will effectively have `d.prototype = {__proto__ : __.prototype, d.constructor = d}` (because of the effect of `new` on `this` inside the called function). So, since we restore `d.prototype.constructor`, the only thing we have truly mutated is the `__proto__` hence `d.prototype.__proto__ = b.prototype`.
+그러나 잠깐, `d.prototype.__proto__`가 변경되고 예전 `d.prototype.constructor`를 유지하기를 원했습니다. 이는 첫 번째 줄(즉, `function __() { this.constructor = d; }`)으로 충분합니다. 여기에서 (호출된 함수 안에서 `this`에 대한 `new`의 영향 때문에) 사실상 `d.prototype = {__proto__ : __.prototype, d.constructor = d}`이 될 것입니다. `d.prototype.constructor`를 원상 복구했기 때문에 실제 변경한 것은 `__proto__`이므로 `d.prototype.__proto__ = b.prototype`이 됩니다.
 
-#### `d.prototype.__proto__ = b.prototype` significance
+#### `d.prototype.__proto__ = b.prototype` 중요함
 
-The significance is that it allows you to add member functions to a child class and inherit others from the base class. This is demonstrated by the following simple example:
+중요한 것은 멤버 함수를 자식 클래스에 추가하고 기본 클래스의 다른 것들을 상속받을 수 있다는 점입니다. 다음 간단한 예제에서 알 수 있습니다.:
 
 ```ts
 function Animal() { }
@@ -139,4 +139,4 @@ var bird = new Bird();
 bird.walk();
 bird.fly();
 ```
-Basically `bird.fly` will be looked up from `bird.__proto__.fly` (remember that `new` makes the `bird.__proto__` point to `Bird.prototype`) and `bird.walk` (an inherited member) will be looked up from `bird.__proto__.__proto__.walk` (as `bird.__proto__ == Bird.prototype` and `bird.__proto__.__proto__` == `Animal.prototype`).
+기본적으로 `bird.fly`는 `bird.__proto__.fly`를 보고 있을 것이고 (`new`가 `bird.__proto__`가 `Bird.prototype`을 가리키게 만드는 것을 기억하세요) `bird.walk`는 (상속받은 멤버) `bird.__proto__.__proto__.walk`를 보고 있을 겁니다. (`bird.__proto__ == Bird.protytype`이고 `bird.__proto__.__proto__` == `Animal.prototype`이기 때문)
