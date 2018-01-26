@@ -1,4 +1,4 @@
-* [TypeScript 시작하기](#getting-시작하기)
+* [TypeScript 시작하기](#typescript-시작하기)
 * [TypeScript 버전](#typescript-버전)
 
 # TypeScript 시작하기

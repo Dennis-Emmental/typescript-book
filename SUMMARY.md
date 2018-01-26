@@ -14,7 +14,7 @@
   * [클래스](docs/classes.md)
     * [클래스 방출](docs/classes-emit.md)
     * [클래스 Super](docs/classes-super.md)
-  * [Arrow Functions](docs/arrow-functions.md)
+  * [화살표 함수](docs/arrow-functions.md)
   * [Rest Parameters](docs/rest-parameters.md)
   * [let](docs/let.md)
   * [const](docs/const.md)
