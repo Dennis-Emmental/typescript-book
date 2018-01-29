@@ -15,7 +15,7 @@
     * [클래스 방출](docs/classes-emit.md)
     * [클래스 Super](docs/classes-super.md)
   * [화살표 함수](docs/arrow-functions.md)
-  * [Rest Parameters](docs/rest-parameters.md)
+  * [나머지 매개 변수](docs/rest-parameters.md)
   * [let](docs/let.md)
   * [const](docs/const.md)
   * [Destructuring](docs/destructuring.md)
