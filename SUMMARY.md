@@ -18,7 +18,7 @@
   * [나머지 매개 변수](docs/rest-parameters.md)
   * [let](docs/let.md)
   * [const](docs/const.md)
-  * [Destructuring](docs/destructuring.md)
+  * [비구조화](docs/destructuring.md)
   * [Spread Operator](docs/spread-operator.md)
   * [for...of](docs/for...of.md)
   * [Iterators](docs/iterators.md)
